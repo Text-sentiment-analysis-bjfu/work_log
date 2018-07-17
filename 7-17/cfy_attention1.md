@@ -4,7 +4,8 @@
 # Encoder-Decoder框架
 
 > 本文暂且只谈**NLP领域的Attention Model**，其实在图片处理或者（图片-图片标题）生成等任务中也有很多场景会应用**Attention Model**，机制也是相同的。
-<br>
+
+
 要提**NLP领域的Attention Model**，就不得不先谈**Encoder-Decoder**框架，因为目前绝大多数文献中出现的**Attention Model**是附着在**Encoder-Decoder**框架下的，当然，其实**Attention Model**可以看作一种通用的思想，本身并不依赖于**Encoder-Decoder**模型。
 
 下图是NLP领域里常用的**Encoder-Decoder**框架最抽象的一种表示：

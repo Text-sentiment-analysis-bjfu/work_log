@@ -163,7 +163,8 @@ $h_3=f(“Jerry”)$，
 当然，从概念上理解的话，把**Attention Model**理解成影响力模型也是合理的，就是说生成目标单词的时候，输入句子每个单词对于生成这个单词有多大的影响程度。
 这种想法也是比较好理解**Attention Model**物理意义的一种思维方式。
 
-图$6$是论文**“A Neural Attention Model for Sentence Summarization”**中，**Rush**用**Attention Model**来做生成式摘要给出的一个非常直观的例子。
+
+图$6$是论文 **“A Neural Attention Model for Sentence Summarization”** 中，**Rush**用**Attention Model**来做生成式摘要给出的一个非常直观的例子。
 
 ![7](https://leanote.com/api/file/getImage?fileId=5b4dea81ab6441548c002d92)
 <p align="center">图6.句子生成式摘要例子</p>

@@ -10,7 +10,7 @@
 下图是NLP领域里常用的**Encoder-Decoder**框架最抽象的一种表示：
 
 ![1](https://leanote.com/api/file/getImage?fileId=5b4de432ab6441529f00348d)
-$$图1. 抽象的Encoder-Decoder框架$$
+<p align="center">图1. 抽象的Encoder-Decoder框架</p>
 
 
 **Encoder-Decoder**框架可以这么直观地去理解：
@@ -75,7 +75,8 @@ $$
 增加了**Attention Model**的**Encoder-Decoder**框架理解起来如图$2$所示。
 
 ![2](https://leanote.com/api/file/getImage?fileId=5b4de476ab6441529f003497)
-$$图2.引入Attention \quad Model的Encoder-Decoder框架$$
+<p align="center">图2.引入Attention Model的Encoder-Decoder框架</p>
+
 
 即生成目标句子单词的过程成了下面的形式：
 
@@ -110,7 +111,8 @@ $h_3=f(“Jerry”)$，
 如果形象表示的话，翻译中文单词“汤姆”的时候，数学公式对应的中间语义表示$C_i$的形成过程类似下图：
 
 ![4](https://leanote.com/api/file/getImage?fileId=5b4de662ab6441548c002d01)
-$$ 图3.C_i的形成过程$$
+<p align="center">图3.$C_i$的形成过程</p>
+
 
 这里还有一个问题：生成目标句子某个单词，比如“汤姆”的时候，是怎么知道Attention Model所需要的输入句子单词注意力分配概率分布值呢？
 就是说“汤姆”对应的概率分布：
@@ -125,12 +127,14 @@ $$ 图3.C_i的形成过程$$
 这是比较常见的一种模型配置，则图$1$的图转换为下图：
 
 ![5](https://leanote.com/api/file/getImage?fileId=5b4de72aab6441529f0034de)
-$$图4.RNN作为具体模型的Encoder-Decoder框架$$
+<p align="center">图4.RNN作为具体模型的Encoder-Decoder框架</p>
+
 
 > 那么用下图可以较为便捷地说明注意力分配概率分布值的通用计算过程：
 
 ![6](https://leanote.com/api/file/getImage?fileId=5b4de773ab6441548c002d38)
-$$图5.Attention分配概率计算$$
+<p align="center">图5.Attention分配概率计算</p>
+
 
 > 对于采用**RNN**的**Decoder**来说，
 如果要生成$y_i$单词，在时刻$i$，我们是可以知道在生成$y_i$之前的隐层节点$i$时刻的输出值$H_i$的，
@@ -156,7 +160,8 @@ $$图5.Attention分配概率计算$$
 图$6$是论文**“A Neural Attention Model for Sentence Summarization”**中，**Rush**用**Attention Model**来做生成式摘要给出的一个非常直观的例子。
 
 ![7](https://leanote.com/api/file/getImage?fileId=5b4dea81ab6441548c002d92)
-$$图6.句子生成式摘要例子$$
+<p align="center">图6.句子生成式摘要例子</p>
+
 
 这个例子中，**Encoder-Decoder**框架的输入句子是：
 `“russian defense minister ivanov called sunday for the creation of a joint front for combating global terrorism”`。

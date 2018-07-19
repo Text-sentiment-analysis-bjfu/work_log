@@ -1,4 +1,4 @@
-# illustrated RNN, RNN variant, Seq2Seq, Attention mechanism
+# Illustrated RNN, RNN variant, Seq2Seq, Attention mechanism
 
 ----------
 > [参考链接](https://zhuanlan.zhihu.com/p/28054589)

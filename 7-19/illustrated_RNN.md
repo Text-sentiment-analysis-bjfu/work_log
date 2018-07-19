@@ -84,17 +84,17 @@ $h_2$的计算和$h_1$类似。
 
 > 输入不是序列而输出为序列的情况怎么处理？我们可以只在序列开始进行输入计算：
 
-![9](https://leanote.com/api/file/getImage?fileId=5b50aef5ab64410a990028e9)
+![Figure 9](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-19/images/10.jpg)
 
 还有一种结构是把输入信息$X$作为每个阶段的输入：
 
-![10](https://leanote.com/api/file/getImage?fileId=5b50af16ab64410c8d00282e)
+![Figure 10](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-19/images/19.jpg)
 
 下图省略了一些$X$的圆圈，是一个等价表示：
  
- ![11](https://leanote.com/api/file/getImage?fileId=5b50af3bab64410c8d002834)
+![Figure 11](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-19/images/7.jpg)
  
- 这种**1 ---> N**的结构可以处理的问题有：
+这种**1 ---> N**的结构可以处理的问题有：
 
  - 从图像生成文字（image caption），此时输入的$X$就是图像的特征，而输出的$y$序列就是一段句子。
  - 从类别生成语音或音乐等。
@@ -108,18 +108,18 @@ $h_2$的计算和$h_1$类似。
 原始的**N ---> N RNN**要求序列等长，然而我们遇到的大部分问题序列都是不等长的，如机器翻译中，源语言和目标语言的句子往往并没有相同的长度。
 为此，**Encoder-Decoder**结构先将输入数据编码成一个上下文向量$c$：
 
-![12](https://leanote.com/api/file/getImage?fileId=5b50b01bab64410a99002904)
+![Figure 12](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-19/images/2.jpg)
 
 得到$c$有多种方式，最简单的方法就是把**Encoder**的最后一个隐状态赋值给$c$，还可以对最后的隐状态做一个变换得到$c$，也可以对所有的隐状态做变换。
 
 拿到$c$之后，就用另一个**RNN**网络对其进行解码，这部分**RNN**网络被称为**Decoder**。
 具体做法就是将$c$当做之前的初始状态$h_0$输入到**Decoder**中：
 
-![13](https://leanote.com/api/file/getImage?fileId=5b50b074ab64410a9900290b)
+![Figure 13](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-19/images/9.jpg)
 
 还有一种做法是将$c$当做每一步的输入：
 
-![14](https://leanote.com/api/file/getImage?fileId=5b50b09fab64410a99002916)
+![Figure 14](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-19/images/18.jpg)
 
 由于这种**Encoder-Decoder**结构不限制输入和输出的序列长度，因此应用的范围非常广泛，比如：
 
@@ -138,14 +138,14 @@ $h_2$的计算和$h_1$类似。
 
 **Attention机制**通过在每个时间输入不同的$c$来解决这个问题，下图是带有**Attention机制**的**Decoder**：
 
-![15](https://leanote.com/api/file/getImage?fileId=5b50b127ab64410a9900291a)
+![Figure 15](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-19/images/5.jpg)
 
 每一个$c$会自动去选取与当前所要输出的$y$最合适的上下文信息。
 具体来说，我们用 $a_{ij}$ 衡量**Encoder**中第$j$阶段的$h_j$和解码时第$i$阶段的相关性，最终**Decoder**中第$i$阶段的输入的上下文信息 $c_i$ 就来自于所有 $h_j$ 对 $a_{ij}$ 的加权和。
 
 以机器翻译为例（将中文翻译成英文）：
 
-![16](https://leanote.com/api/file/getImage?fileId=5b50b17dab64410c8d00286c)
+![Figure 16](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-19/images/16.jpg)
 
 输入的序列是“我爱中国”，因此，**Encoder**中的$h_1、h_2、h_3、h_4$就可以分别看做是“我”、“爱”、“中”、“国”所代表的信息。
 在翻译成英语时，第一个上下文$c_1$应该和“我”这个字最相关，因此对应的 $a_{11}$ 就比较大，而相应的 $a_{12} 、 a_{13} 、 a_{14}$ 就比较小。
@@ -158,15 +158,15 @@ $c_2$应该和“爱”最相关，因此对应的 $a_{22}$ 就比较大。
 
 同样还是拿上面的机器翻译举例， $a_{1j}$ 的计算（此时箭头就表示对$h'$和 $h_j$ 同时做变换）：
  
-![17](https://leanote.com/api/file/getImage?fileId=5b50b209ab64410c8d002871)
+![Figure 17](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-19/images/12.jpg)
 
 $a_{2j}$ 的计算：
 
-![18](https://leanote.com/api/file/getImage?fileId=5b50b232ab64410a99002925)
+![Figure 18](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-19/images/13.jpg)
 
 $a_{3j}$ 的计算：
 
-![19](https://leanote.com/api/file/getImage?fileId=5b50b24cab64410c8d002879)
+![Figure 19](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-19/images/4.jpg)
 
 以上就是**带有Attention的Encoder-Decoder模型**计算的全过程。
 

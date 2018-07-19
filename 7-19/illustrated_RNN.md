@@ -6,7 +6,7 @@
 
 首先来了解一下最基本的单层网络，它的结构如图：
 
-![1](https://leanote.com/api/file/getImage?fileId=5b50a69eab64410a99002834)
+![Figure 1](https://github.com/Text-sentiment-analysis-bjfu/work_log/tree/master/7-19/images/1.jpg)
 
 输入是$x$，经过变换$Wx+b$和激活函数$f$得到输出$y$。
 

@@ -16,7 +16,7 @@
 
 在实际应用中，我们还会遇到很多序列形的数据：
 
-![2](https://leanote.com/api/file/getImage?fileId=5b50a717ab64410c8d002796)
+![Figure 2](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-19/images/1.jpg)
 
 如：
 
@@ -28,7 +28,7 @@
 为了建模序列问题，**RNN**引入了隐状态**h（hidden state）**的概念，**h**可以对序列形的数据提取特征，接着再转换为输出。
 先从**h1**的计算开始看：
 
-![3](https://leanote.com/api/file/getImage?fileId=5b50aa84ab64410a990028ab)
+![Figure 3](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-19/images/14.jpg)
 
 > 图示中记号的含义是：
 圆圈或方块表示的是向量。
@@ -37,23 +37,23 @@
 $h_2$的计算和$h_1$类似。
 要注意的是，在计算时，每一步使用的参数$U$、$W$、$b$都是一样的，也就是说每个步骤的参数都是共享的。
 
-![4](https://leanote.com/api/file/getImage?fileId=5b50acc2ab64410c8d002804)
+![Figure 4](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-19/images/8.jpg)
 
 依次计算剩下来的（使用相同的参数$U$、$W$、$b$）：
 
-![5](https://leanote.com/api/file/getImage?fileId=5b50ad02ab64410c8d00280c)
+![Figure 5](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-19/images/15.jpg)
 
 这里为了方便起见，只画出序列长度为$4$的情况，实际上，这个计算过程可以无限地持续下去。
 
 目前的**RNN**还没有输出，得到输出值的方法就是直接通过$h$进行计算：
 
-![6](https://leanote.com/api/file/getImage?fileId=5b50ad3eab64410c8d00280f)
+![Figure 6](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-19/images/6.jpg)
 
 正如之前所说，一个箭头就表示对对应的向量做一次类似于$f(Wx+b)$的变换，这里的这个箭头就表示对$h_1$进行一次变换，得到输出$y_1$。
 
 剩下的输出类似进行（使用和$y_1$同样的参数$V$和$c$）：
 
-![7](https://leanote.com/api/file/getImage?fileId=5b50ad8bab64410c8d002812)
+![Figure 7](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-19/images/11.jpg)
 
 这就是最经典的**RNN**结构，
 它的输入是$x_1, x_2, ...x_n$，输出为$y_1, y_2, ...y_n$，
@@ -71,7 +71,7 @@ $h_2$的计算和$h_1$类似。
 
 > 有时要处理的问题输入是一个序列，输出是一个单独的值而不是序列，应该怎样建模呢？实际上，我们只在最后一个$h$上进行输出变换就可以了：
 
-![8](https://leanote.com/api/file/getImage?fileId=5b50aea0ab64410a990028e4)
+![Figure 8](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-19/images/3.jpg)
 
 > 这种结构通常用来处理序列分类问题。
 如输入一段文字判别它所属的类别，

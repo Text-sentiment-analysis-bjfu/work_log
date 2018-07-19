@@ -1,3 +1,10 @@
+# Fully illustrated RNN, RNN variant, Seq2Seq, Attention mechanism
+
+----------
+> [参考链接](https://zhuanlan.zhihu.com/p/28054589)
+
+----------
+
 > 本文主要是利用图片的形式，详细地介绍了经典的**RNN**、**RNN几个重要变体**，以及**Seq2Seq模型**、**Attention机制**。
 
 ----------

@@ -12,16 +12,21 @@ IMDB电影评论数据总共有25000条，如果是在上面链接中下载的�
 
 > 初始化参数
 
+```python
+
     SENTENCE_NUM = 25000
     MAX_SEQUENCE_LENGTH = 1000
     MAX_NB_WORDS = 20000
     EMBEDDING_DIM = 100
     VALIDATION_SPLIT = 0.2
+```
 
 > 在读出数据之后，需要对数据进行一些处理，
 例如过滤掉一些非ASCII字符，
 清洗掉一些换行符，
 将大写字母转换为小写等：
+
+```python
 
     def clean_str(string):
         """
@@ -48,19 +53,23 @@ IMDB电影评论数据总共有25000条，如果是在上面链接中下载的�
     labels = to_categorical(np.asarray(labels))
     print('Shape of data tensor:', len(texts))
     print('Shape of label tensor:', len(labels))
-    
+```
+
 
 > 将数据序列化，并统一长度（这里统一句子长度为1000，多的截断，少的补0）：
 
+```python
     tokenizer = Tokenizer(nb_words=MAX_NB_WORDS)
     tokenizer.fit_on_texts(texts)
     sequences = tokenizer.texts_to_sequences(texts)
     word_index = tokenizer.word_index
     data = pad_sequences(sequences, maxlen=MAX_SEQUENCE_LENGTH)
+```
 
 > 随机打乱数据，并将数据切分为训练集和验证集
 （切分比例8:2）：
 
+```python
     indices = np.arange(data.shape[0])
     np.random.shuffle(indices)
     data = data[indices]
@@ -71,6 +80,7 @@ IMDB电影评论数据总共有25000条，如果是在上面链接中下载的�
     y_train = labels[:-nb_validation_samples]
     x_val = data[-nb_validation_samples:]
     y_val = labels[-nb_validation_samples:]
+```
 
 > 将数据序列化之后，
 每一句话就变成了固定长度（1000）的index序列，
@@ -78,6 +88,7 @@ IMDB电影评论数据总共有25000条，如果是在上面链接中下载的�
 接下来将index对应到词语的word Embedding（词向量），这里使用的是glove.6B.100d，即每个词用100维向量表示，[glove词向量下载链接](https://nlp.stanford.edu/projects/glove/)。
 未登录词（OOV问题）采取的是随机初始化向量，词向量不可训练。
 
+```python
     embeddings_index = {}
     f = open(os.path.join('glove.6B.100d.txt'))
     for line in f:
@@ -109,6 +120,7 @@ IMDB电影评论数据总共有25000条，如果是在上面链接中下载的�
     print(y_train.sum(axis=0))
     print(y_val.sum(axis=0))
     
+```
 
 ----------
 
@@ -118,6 +130,8 @@ IMDB电影评论数据总共有25000条，如果是在上面链接中下载的�
 在得到文本向量表示之后，可以直接将向量输入MLP网络，经过多层MLP训练之后，进行softmax分类。
 
 代码如下：
+
+```python
 
     sequence_input = Input(shape=(MAX_SEQUENCE_LENGTH,), dtype='int32')
     embedded_sequences = embedding_layer(sequence_input)
@@ -134,6 +148,7 @@ IMDB电影评论数据总共有25000条，如果是在上面链接中下载的�
     model.summary()
     model.fit(x_train, y_train, validation_data=(x_val, y_val),
               nb_epoch=10, batch_size=50)
+```
 
 实验结果：
 
@@ -148,6 +163,7 @@ IMDB电影评论数据总共有25000条，如果是在上面链接中下载的�
 
 代码如下：
 
+```python
     sequence_input = Input(shape=(MAX_SEQUENCE_LENGTH,), dtype='int32')
     embedded_sequences = embedding_layer(sequence_input)
     l_gru = Bidirectional(LSTM(100, return_sequences=False))(embedded_sequences)
@@ -163,6 +179,8 @@ IMDB电影评论数据总共有25000条，如果是在上面链接中下载的�
     model.summary()
     model.fit(x_train, y_train, validation_data=(x_val, y_val),
               nb_epoch=10, batch_size=50)
+
+```
 
 实验结果：
 
@@ -181,6 +199,7 @@ IMDB电影评论数据总共有25000条，如果是在上面链接中下载的�
 
 代码如下：
 
+```python
     from keras import backend as K
     from keras.engine.topology import Layer
     from keras import initializers, regularizers, constraints
@@ -270,10 +289,12 @@ IMDB电影评论数据总共有25000条，如果是在上面链接中下载的�
         def compute_output_shape(self, input_shape):
         #output_dim = K.int_shape(self.u)
             return (input_shape[0], input_shape[-1])
+```
 
 
 BiLSTM+Attention代码如下：
 
+```python
     sequence_input = Input(shape=(MAX_SEQUENCE_LENGTH,), dtype='int32')
     embedded_sequences = embedding_layer(sequence_input)
     l_gru = Bidirectional(LSTM(100, return_sequences=True))(embedded_sequences)
@@ -292,7 +313,9 @@ BiLSTM+Attention代码如下：
     model.summary()
     model.fit(x_train, y_train, validation_data=(x_val, y_val),
               nb_epoch=10, batch_size=50)
-              
+  
+```
+
 实验结果：
 
 ![Figure 5](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-20/images/5.png)

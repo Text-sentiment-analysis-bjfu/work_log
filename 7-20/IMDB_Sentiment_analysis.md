@@ -4,7 +4,7 @@
 
 IMDB电影评论数据总共有25000条，如果是在上面链接中下载的数据，那么数据的组织格式就是下图所示（review是评论文本，sentiment是情感分类标注，1代表positive，0代表negative）：
 
-![Figure 1](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-20/images/1.jpg)
+![Figure 1](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-20/images/1.png)
 
 ----------
 
@@ -137,7 +137,7 @@ IMDB电影评论数据总共有25000条，如果是在上面链接中下载的�
 
 实验结果：
 
-![Figure 2](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-20/images/2.jpg)
+![Figure 2](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-20/images/2.png)
 
 ----------
 
@@ -166,7 +166,7 @@ IMDB电影评论数据总共有25000条，如果是在上面链接中下载的�
 
 实验结果：
 
-![Figure 3](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-20/images/3.jpg)
+![Figure 3](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-20/images/3.png)
 
 ----------
 
@@ -177,7 +177,7 @@ IMDB电影评论数据总共有25000条，如果是在上面链接中下载的�
 
 这里的Attention层采用的是论文[《FEED-FORWARD NETWORKS WITH ATTENTION CANSOLVE SOME LONG-TERM MEMORY PROBLEMS》](http://colinraffel.com/publications/iclr2016feed.pdf)中的强制前向Attention模型：
 
-![Figure 4](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-20/images/4.jpg)
+![Figure 4](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-20/images/4.png)
 
 代码如下：
 
@@ -295,7 +295,7 @@ BiLSTM+Attention代码如下：
               
 实验结果：
 
-![Figure 5](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-20/images/5.jpg)
+![Figure 5](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-20/images/5.png)
 
 ----------
 

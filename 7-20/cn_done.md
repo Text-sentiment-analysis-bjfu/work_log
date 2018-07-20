@@ -7,12 +7,12 @@
 #### [参考链接](http://www.runoob.com/php/php-tutorial.html "PHP 教程") ####
 
 ## PHP 创建 MySQL 表 ##
-CREATE TABLE 语句用于创建 MySQL 表。
+`CREATE TABLE` 语句用于创建 MySQL 表。
 
 创建表前，需要使用 `use myDB` 来选择要操作的数据库：
 
 	use myDB;
-创建一个名为 "MyGuests" 的表，有 5 个列： "id", "firstname", "lastname", "email" 和 "reg_date":
+创建一个名为 `"MyGuests"` 的表，有 5 个列：` "id"`, `"firstname"`, `"lastname"`, `"email"` 和 `"reg_date"`:
 
     CREATE TABLE MyGuests (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -35,7 +35,7 @@ CREATE TABLE 语句用于创建 MySQL 表。
 
 - AUTO INCREMENT - 设置 MySQL 字段的值在新增记录时每次自动增长 1
 
-- PRIMARY KEY - 设置数据表中每条记录的唯一标识。 通常列的PRIMARY KEY 设置为 ID 数值，与 AUTO_INCREMENT 一起使用。
+- PRIMARY KEY - 设置数据表中每条记录的唯一标识。 通常列的 PRIMARY KEY 设置为 ID 数值，与 AUTO_INCREMENT 一起使用。
 
 > 每个表都应该有一个主键(本列为 "id" 列)，主键必须包含唯一的值。
 
@@ -89,7 +89,7 @@ INSERT INTO 语句通常用于向 MySQL 表添加新的记录：
     
 	INSERT INTO table_name (column1, column2, column3,...)
 	VALUES (value1, value2, value3,...)
-假如有表 "MyGuests"，表字段有: "id", "firstname", "lastname", "email" 和 "reg_date"。 现在，开始向表填充数据。
+假如有表 `"MyGuests"`，表字段有: `"id"`, `"firstname"`, `"lastname"`, `"email"` 和 `"reg_date"`。 现在，开始向表填充数据。
 
 	<?php
 	$servername = "localhost";
@@ -198,7 +198,7 @@ SELECT 语句用于从数据表中读取数据:
 使用 * 号来读取所有数据表中的字段：
 
 	SELECT * FROM table_name
-以下实例中从 myDB 数据库的 MyGuests 表读取了 id, firstname 和 lastname 列的数据并显示在页面上：
+以下实例中从 `myDB` 数据库的 `MyGuests` 表读取了 `id`, `firstname` 和 `lastname` 列的数据并显示在页面上：
 
 	<?php
 	$servername = "localhost";
@@ -228,8 +228,8 @@ SELECT 语句用于从数据表中读取数据:
 	?>
 以上代码解析如下:
 
->首先，设置了 SQL 语句从` MyGuests`数据表中读取 `id, firstname` 和 `lastname` 三个字段。之后使用该 SQL 语句从数据库中取出结果集并赋给复制给变量 `$result`。
+>首先，设置了 SQL 语句从` MyGuests`数据表中读取 `id`, `firstname` 和 `lastname` 三个字段。之后使用该 SQL 语句从数据库中取出结果集并赋给复制给变量 `$result`。
 
 >函数 `num_rows() `判断返回的数据。
 
->如果返回的是多条数据，函数 `fetch_assoc()` 将结合集放入到关联数组并循环输出。 `while()` 循环出结果集，并输出 `id, firstname` 和 `lastname` 三个字段值。
+>如果返回的是多条数据，函数 `fetch_assoc()` 将结合集放入到关联数组并循环输出。 `while()` 循环出结果集，并输出 `id`, `firstname` 和 `lastname` 三个字段值。

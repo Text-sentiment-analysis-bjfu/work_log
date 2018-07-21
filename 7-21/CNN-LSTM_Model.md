@@ -8,7 +8,7 @@
  - 那一件事情我真的不喜欢
  - 我看过这个电影，但是不喜欢它的结局。
 
-![1](https://leanote.com/api/file/getImage?fileId=5b534977ab644142f500193a)
+![Figure 1](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-21/images/1.png)
 
 ----------
 
@@ -22,7 +22,7 @@
 有相矛盾的观点，最终会导致简单的前馈网络混淆。
 另一方面，LSTM可以得知，在句子结尾处表达的意思比一开始表达的意思更重要。
 
-![2](https://leanote.com/api/file/getImage?fileId=5b5349d4ab644142f500193c)
+![Figure 2](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-21/images/2.jpeg)
 
 ----------
 
@@ -30,7 +30,7 @@
 
 > CNN-LSTM 模型结合由初始的卷积层组成，这将接收word embedding（对文档中每个不同的单词都得到一个对应的向量）作为输入。然后将其输出汇集到一个较小的尺寸，然后输入到LSTM层。隐藏在这个模型后面的直觉是卷积层将提取局部特征，然后LSTM层将能够使用所述特征的排序来了解输入的文本排序。
 
-![3](https://leanote.com/api/file/getImage?fileId=5b534a37ab6441410000197d)
+![Figure 3](https://github.com/Text-sentiment-analysis-bjfu/work_log/raw/master/7-21/images/3.png)
 
 ----------
 

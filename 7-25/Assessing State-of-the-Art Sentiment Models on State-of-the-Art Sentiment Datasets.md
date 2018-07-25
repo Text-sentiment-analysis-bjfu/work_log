@@ -6,6 +6,8 @@ This experiment runs the best models with the best embeddings as described in th
 
 Jeremy Barnes, Roman Klinger, and Sabine Schulte im Walde. 2017. **Assessing State-of-the-art Sentiment Models on State-of-the-art Sentiment Datasets**. In *Proceedings of the 8th Workshop on Computational Approaches to Subjectivity, Sentiment and Social Media Analysis*.
 
+> [相关代码](https://github.com/jbarnesspain/sota_sentiment)
+
 ## Models
 1. Bag-of-Words + L2 regularized Logistic Regression
 2. Averaged Embeddings + L2 regularized Logistic Regression
